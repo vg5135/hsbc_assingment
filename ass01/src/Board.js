@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Task from "./Task";
 import { Tasks } from "./Data";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight,FaArrowsAlt } from "react-icons/fa";
 
 export default function Board() {
   const statusList = ["Backlog", "Todo", "InProgress", "Done"];
@@ -85,6 +85,7 @@ export default function Board() {
                     >
                       <FaArrowLeft />
                     </span>
+                    <span><FaArrowsAlt/></span>
                     <span
                       onClick={() => rightArrowClickedHandler(card, task.title)}
                     >
