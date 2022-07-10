@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Task from "./Task";
+import { Link } from "react-router-dom";
+
 import { Tasks } from "./Data";
-import { FaArrowLeft, FaArrowRight,FaArrowsAlt } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaArrowsAlt } from "react-icons/fa";
 
 export default function Board() {
   const statusList = ["Backlog", "Todo", "InProgress", "Done"];
@@ -38,6 +40,9 @@ export default function Board() {
 
   return (
     <div>
+      <nav>
+        <Link to="/ass02">Go to Assignment-02</Link>
+      </nav>
       <div className="todo-container">
         <Task
           setTasksList={setTasksList}
@@ -50,7 +55,7 @@ export default function Board() {
         >
           {tasksList.map((task, index) => (
             <div className="container-fluid" key={task.id}>
-              <h6 style={{'marginBottom': '15git %'}}>{task.title}</h6>
+              <h6 style={{ marginBottom: "15git %" }}>{task.title}</h6>
               <>
                 {task.cards.map((card, index) => (
                   <span
@@ -66,7 +71,7 @@ export default function Board() {
                         display: "block",
                         border: "1px solid black",
                         padding: "5px",
-                        width: '150px',
+                        width: "150px",
                         background: `${
                           task.title === statusList[0]
                             ? "red"
@@ -85,7 +90,9 @@ export default function Board() {
                     >
                       <FaArrowLeft />
                     </span>
-                    <span><FaArrowsAlt/></span>
+                    <span>
+                      <FaArrowsAlt />
+                    </span>
                     <span
                       onClick={() => rightArrowClickedHandler(card, task.title)}
                     >
